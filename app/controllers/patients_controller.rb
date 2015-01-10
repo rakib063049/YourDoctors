@@ -37,11 +37,11 @@ class PatientsController < ApplicationController
   end
 
   private
-    def set_patient
-      @patient = Patient.find(params[:id])
-    end
+  def set_patient
+    @patient = Patient.find(params[:id])
+  end
 
-    def patient_params
-      params.require(:patient).permit(:name, :age, :email, :phone, :address, :city, :thana_id, :district_id, :cuntry)
-    end
+  def patient_params
+    params.require(:patient).permit(:name, :age, :email, :phone, :address, :city, :thana_id, :district_id, :division_id, :cuntry)
+  end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150110063321) do
+ActiveRecord::Schema.define(version: 20150110122759) do
 
   create_table "availabilities", force: true do |t|
     t.integer  "hospital_id"
@@ -19,6 +19,19 @@ ActiveRecord::Schema.define(version: 20150110063321) do
     t.datetime "end_at"
     t.string   "day_off"
     t.integer  "doctor_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "districts", force: true do |t|
+    t.string   "name"
+    t.integer  "division_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "divisions", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -32,6 +45,11 @@ ActiveRecord::Schema.define(version: 20150110063321) do
     t.string   "cuntry"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.string   "division_id"
   end
 
   create_table "rates", force: true do |t|
@@ -47,6 +65,13 @@ ActiveRecord::Schema.define(version: 20150110063321) do
     t.integer  "patient_id"
     t.float    "number"
     t.string   "comments"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "thanas", force: true do |t|
+    t.string   "name"
+    t.integer  "district_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -78,6 +103,11 @@ ActiveRecord::Schema.define(version: 20150110063321) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string   "division_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
