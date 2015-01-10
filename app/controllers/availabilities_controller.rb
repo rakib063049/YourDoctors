@@ -1,11 +1,11 @@
 class AvailabilitiesController < ApplicationController
+  before_action :set_doctor
   before_action :set_availability, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
 
   def index
-    @availabilities = Availability.all
-    respond_with(@availabilities)
+    @availabilities = @doctor.availabilities
   end
 
   def show
@@ -13,7 +13,7 @@ class AvailabilitiesController < ApplicationController
   end
 
   def new
-    @availability = Availability.new
+    @availability = @doctor.availabilities.build
     respond_with(@availability)
   end
 
@@ -21,27 +21,32 @@ class AvailabilitiesController < ApplicationController
   end
 
   def create
-    @availability = Availability.new(availability_params)
+    @availability = @doctor.availabilities.build(availability_params)
     @availability.save
-    respond_with(@availability)
+    respond_with([@doctor, @availability])
   end
 
   def update
     @availability.update(availability_params)
-    respond_with(@availability)
+    respond_with([@doctor, @availability])
   end
 
   def destroy
     @availability.destroy
-    respond_with(@availability)
+    respond_with([@doctor, @availability])
   end
 
   private
-    def set_availability
-      @availability = Availability.find(params[:id])
-    end
+  def set_availability
+    @availability = Availability.find(params[:id])
+  end
 
-    def availability_params
-      params.require(:availability).permit(:hospital_id, :start_at, :end_at, :day_off, :doctor_id)
-    end
+  def set_doctor
+    @doctor = Doctor.find(params[:doctor_id])
+  end
+
+
+  def availability_params
+    params.require(:availability).permit(:hospital_id, :start_at, :end_at, :day_off, :doctor_id)
+  end
 end

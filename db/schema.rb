@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150110122759) do
+ActiveRecord::Schema.define(version: 20150110153044) do
 
   create_table "availabilities", force: true do |t|
     t.integer  "hospital_id"
-    t.datetime "start_at"
-    t.datetime "end_at"
+    t.string   "start_at"
+    t.string   "end_at"
     t.string   "day_off"
     t.integer  "doctor_id"
     t.datetime "created_at"

@@ -1,15 +1,12 @@
-<%= simple_form_for(@availability) do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for([@doctor, @availability], wrapper: :horizontal_form) do |f| %>
+    <div class="form-inputs">
+      <%= f.input :hospital_id, collection: Hospital.all.collect { |c| [c.name, c.id] }, prompt: 'Please select Hospital' %>
+      <%= f.input :start_at, :input_html => {:value => f.object.start_at || '5:00 PM'}, label: "Starting Hour" %>
+      <%= f.input :end_at, :input_html => {:value => f.object.end_at || '8:00 PM'}, label: "Ending Hour" %>
+      <%= f.input :day_off, :input_html => {:value => f.object.day_off || 'Friday'} %>
+    </div>
 
-  <div class="form-inputs">
-    <%= f.input :hospital_id %>
-    <%= f.input :start_at %>
-    <%= f.input :end_at %>
-    <%= f.input :day_off %>
-    <%= f.input :doctor_id %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
 <% end %>

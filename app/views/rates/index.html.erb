@@ -5,7 +5,6 @@
     <tr>
       <th>New patient</th>
       <th>Old patient</th>
-      <th>Doctor</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,7 +14,6 @@
       <tr>
         <td><%= rate.new_patient %></td>
         <td><%= rate.old_patient %></td>
-        <td><%= rate.doctor_id %></td>
         <td><%= link_to 'Show', doctor_rate_path(@doctor, rate) %></td>
         <td><%= link_to 'Edit', edit_doctor_rate_path(@doctor, rate) %></td>
         <td><%= link_to 'Destroy', doctor_rate_path(@doctor, rate), method: :delete, data: { confirm: 'Are you sure?' } %></td>
