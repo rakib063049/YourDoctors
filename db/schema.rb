@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150110184551) do
+ActiveRecord::Schema.define(version: 20150110200108) do
 
   create_table "availabilities", force: true do |t|
     t.integer  "hospital_id"
@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 20150110184551) do
     t.string   "email",                  default: "", null: false
     t.string   "phone"
     t.string   "address"
-    t.integer  "city"
+    t.string   "city"
     t.integer  "thana_id"
     t.integer  "district_id"
     t.string   "cuntry"

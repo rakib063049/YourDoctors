@@ -1,19 +1,30 @@
-<%= simple_form_for(@patient) do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for(@patient, wrapper: :horizontal_form) do |f| %>
+    <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :age %>
-    <%= f.input :email %>
-    <%= f.input :phone %>
-    <%= f.input :address %>
-    <%= f.input :city %>
-    <%= f.input :thana_id %>
-    <%= f.input :district_id %>
-    <%= f.input :cuntry %>
-  </div>
+    <div class="form-inputs">
+      <%= f.input :name %>
+      <%= f.input :age %>
+      <%= f.input :email %>
+      <%= f.input :phone %>
+      <%= f.input :address %>
+      <%= f.input :city %>
+      <%= f.input :division_id, collection: Division.all.collect { |c| [c.name, c.id] }, prompt: 'Please select Division', required: true %>
+      <%= f.input :district_id, :input_html => {'data-option-dependent' => true,
+                                                'data-option-url' => '/locations/districts?division_id=:patient_division_id',
+                                                'data-option-observed' => 'patient_division_id'}, prompt: 'Please select District',
+                  collection: (f.object.division ? f.object.division.districts.collect { |district| [district.name, district.id] } : [])
+      %>
+      <%= f.input :thana_id, :input_html => {'data-option-dependent' => true,
+                                             'data-option-url' => '/locations/thanas?district_id=:patient_district_id',
+                                             'data-option-observed' => 'patient_district_id'}, prompt: 'Please select Thana',
+                  collection: (f.object.division ? f.object.district.thanas.collect { |thana| [thana.name, thana.id] } : [])
+      %>
+      <%= f.input :cuntry, :input_html => {:value => f.object.cuntry || 'Bangladesh'}, label: "Country" %>
+      <%= f.input :password, required: true %>
+      <%= f.input :password_confirmation, required: true %>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
 <% end %>

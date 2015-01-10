@@ -22,7 +22,7 @@ class PatientsController < ApplicationController
 
   def create
     @patient = Patient.new(patient_params)
-    @patient.save
+    @patient.save!
     respond_with(@patient)
   end
 
@@ -42,6 +42,6 @@ class PatientsController < ApplicationController
   end
 
   def patient_params
-    params.require(:patient).permit(:name, :age, :email, :phone, :address, :city, :thana_id, :district_id, :division_id, :cuntry)
+    params.require(:patient).permit(:name, :age, :email, :phone, :address, :city, :thana_id, :district_id, :division_id, :cuntry, :password, :password_confirmation)
   end
 end
