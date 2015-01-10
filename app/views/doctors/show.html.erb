@@ -1,93 +1,84 @@
 <div class="jumbotron row">
   <div class="col-lg-4">
-    <h2>Doctor's Profile!</h2>
-
-    <p>
-      <strong>Name:</strong>
-      <%= @doctor.name %>
-    </p>
-
-    <p>
-      <strong>Title:</strong>
-      <%= @doctor.title %>
-    </p>
-
-    <p>
-      <strong>Degrees:</strong>
-      <%= @doctor.degrees %>
-    </p>
-
-    <p>
-      <strong>Education:</strong>
-      <%= @doctor.education %>
-    </p>
-
-    <p>
-      <strong>Specialist:</strong>
-      <%= @doctor.specialist %>
-    </p>
-
-    <p>
-      <strong>Email:</strong>
-      <%= @doctor.email %>
-    </p>
-
-    <p>
-      <strong>Phone:</strong>
-      <%= @doctor.phone %>
-    </p>
-
-    <p>
-      <strong>About me:</strong>
-      <%= @doctor.about_me %>
-    </p>
-
+    <h2><%= link_to 'Edit Profile »', edit_doctor_path(@doctor) %> </h2>
+    <table class="table table-bordered">
+      <tr>
+        <th>Name</th>
+        <td><%= @doctor.name %></td>
+      </tr>
+      <tr>
+        <th>Title</th>
+        <td><%= @doctor.title %></td>
+      </tr>
+      <tr>
+        <th>Degrees</th>
+        <td><%= @doctor.degrees %></td>
+      </tr>
+      <tr>
+        <th>Education</th>
+        <td><%= @doctor.education %></td>
+      </tr>
+      <tr>
+        <th>Specialist</th>
+        <td><%= @doctor.specialist %></td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td><%= @doctor.email %></td>
+      </tr>
+      <tr>
+        <th>Phone</th>
+        <td><%= @doctor.phone %></td>
+      </tr>
+      <tr>
+        <th>About Me</th>
+        <td><%= @doctor.about_me %></td>
+      </tr>
+    </table>
   </div>
 
   <div class="col-lg-4">
     <h2><%= link_to "Rates!", doctor_rates_path(@doctor) %> </h2>
-    <% @doctor.rates.each do |rate| %>
-        <p>
-          <strong>Title</strong>
-          <%= rate.title %>
-        </p>
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th>Title</th>
+        <th>New Patients</th>
+        <th>Old Patients</th>
+      </tr>
+      </thead>
 
-        <p>
-          <strong>For New Patients</strong>
-          <%= rate.new_patient %>
-        </p>
-
-        <p>
-          <strong>For Old Patients</strong>
-          <%= rate.old_patient %>
-        </p>
-    <% end %>
+      <% @doctor.rates.each do |rate| %>
+          <tr>
+            <td><%= rate.title %></td>
+            <td>BDT <%= rate.new_patient %></td>
+            <td>BDT <%= rate.old_patient %></td>
+          </tr>
+      <% end %>
+    </table>
   </div>
 
   <div class="col-lg-4">
     <h2><%= link_to "Availabilities!", doctor_availabilities_path(@doctor) %> </h2>
-    <% @doctor.availabilities.each do |availability| %>
-        <p>
-          <strong>Hospital Name:</strong>
-          <%= availability.hospital.try(:name) %>
-        </p>
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th>Hospital</th>
+        <th>Start</th>
+        <th>End</th>
+        <th>Off</th>
+      </tr>
+      </thead>
 
-        <p>
-          <strong>Starting Hour</strong>
-          <%= availability.start_at %>
-        </p>
-
-        <p>
-          <strong>Ending Hour</strong>
-          <%= availability.end_at %>
-        </p>
-
-        <p>
-          <strong>Day Off</strong>
-          <%= availability.day_off %>
-        </p>
-
-    <% end %>
+      <% @doctor.availabilities.each do |availability| %>
+          <tr>
+            <td><%= link_to availability.hospital.name, hospital_path(availability.hospital) %></td>
+            <td><%= availability.start_at %></td>
+            <td><%= availability.end_at %></td>
+            <td> <%= availability.day_off %></td>
+          </tr>
+      <% end %>
+    </table>
   </div>
 </div>
 
