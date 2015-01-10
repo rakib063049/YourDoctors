@@ -1,34 +1,45 @@
-<p id="notice"><%= notice %></p>
+<div class="jumbotron row">
 
-<p>
-  <strong>Name:</strong>
-  <%= @hospital.name %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @hospital.name %>
+  </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @hospital.address %>
-</p>
+  <p>
+    <strong>Address:</strong>
+    <%= @hospital.address %>
+  </p>
 
-<p>
-  <strong>City:</strong>
-  <%= @hospital.city %>
-</p>
+  <p>
+    <strong>City:</strong>
+    <%= @hospital.city %>
+  </p>
 
-<p>
-  <strong>Thana:</strong>
-  <%= @hospital.thana_id %>
-</p>
+  <p>
+    <strong>Thana:</strong>
+    <%= @hospital.thana.try(:name) %>
+  </p>
 
-<p>
-  <strong>District:</strong>
-  <%= @hospital.district_id %>
-</p>
+  <p>
+    <strong>District:</strong>
+    <%= @hospital.district.try(:name) %>
+  </p>
 
-<p>
-  <strong>Country:</strong>
-  <%= @hospital.cuntry %>
-</p>
+  <p>
+    <strong>Country:</strong>
+    <%= @hospital.cuntry %>
+  </p>
 
+  <p>
+    <strong>Phone:</strong>
+    <%= @hospital.phone %>
+  </p>
+
+  <p>
+    <strong>Email:</strong>
+    <%= @hospital.email %>
+  </p>
+
+</div>
 <%= link_to 'Edit', edit_hospital_path(@hospital) %> |
 <%= link_to 'Back', hospitals_path %>
