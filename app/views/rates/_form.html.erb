@@ -1,6 +1,7 @@
 <%= simple_form_for([@doctor, @rate], wrapper: :horizontal_form) do |f| %>
 
     <div class="form-inputs">
+      <%= f.input :title %>
       <%= f.input :new_patient %>
       <%= f.input :old_patient %>
     </div>

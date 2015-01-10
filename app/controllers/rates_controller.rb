@@ -46,6 +46,6 @@ class RatesController < ApplicationController
   end
 
   def rate_params
-    params.require(:rate).permit(:new_patient, :old_patient, :doctor_id)
+    params.require(:rate).permit(:title, :new_patient, :old_patient, :doctor_id)
   end
 end

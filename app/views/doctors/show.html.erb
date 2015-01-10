@@ -1,46 +1,94 @@
-<div class="jumbotron">
-  <h2>Doctor's Profile!</h2>
+<div class="jumbotron row">
+  <div class="col-lg-4">
+    <h2>Doctor's Profile!</h2>
 
-  <p>
-    <strong>Name:</strong>
-    <%= @doctor.name %>
-  </p>
+    <p>
+      <strong>Name:</strong>
+      <%= @doctor.name %>
+    </p>
 
-  <p>
-    <strong>Title:</strong>
-    <%= @doctor.title %>
-  </p>
+    <p>
+      <strong>Title:</strong>
+      <%= @doctor.title %>
+    </p>
 
-  <p>
-    <strong>Degrees:</strong>
-    <%= @doctor.degrees %>
-  </p>
+    <p>
+      <strong>Degrees:</strong>
+      <%= @doctor.degrees %>
+    </p>
 
-  <p>
-    <strong>Education:</strong>
-    <%= @doctor.education %>
-  </p>
+    <p>
+      <strong>Education:</strong>
+      <%= @doctor.education %>
+    </p>
 
-  <p>
-    <strong>Specialist:</strong>
-    <%= @doctor.specialist %>
-  </p>
+    <p>
+      <strong>Specialist:</strong>
+      <%= @doctor.specialist %>
+    </p>
 
-  <p>
-    <strong>Email:</strong>
-    <%= @doctor.email %>
-  </p>
+    <p>
+      <strong>Email:</strong>
+      <%= @doctor.email %>
+    </p>
 
-  <p>
-    <strong>Phone:</strong>
-    <%= @doctor.phone %>
-  </p>
+    <p>
+      <strong>Phone:</strong>
+      <%= @doctor.phone %>
+    </p>
 
-  <p>
-    <strong>About me:</strong>
-    <%= @doctor.about_me %>
-  </p>
+    <p>
+      <strong>About me:</strong>
+      <%= @doctor.about_me %>
+    </p>
 
+  </div>
+
+  <div class="col-lg-4">
+    <h2><%= link_to "Rates!", doctor_rates_path(@doctor) %> </h2>
+    <% @doctor.rates.each do |rate| %>
+        <p>
+          <strong>Title</strong>
+          <%= rate.title %>
+        </p>
+
+        <p>
+          <strong>For New Patients</strong>
+          <%= rate.new_patient %>
+        </p>
+
+        <p>
+          <strong>For Old Patients</strong>
+          <%= rate.old_patient %>
+        </p>
+    <% end %>
+  </div>
+
+  <div class="col-lg-4">
+    <h2><%= link_to "Availabilities!", doctor_availabilities_path(@doctor) %> </h2>
+    <% @doctor.availabilities.each do |availability| %>
+        <p>
+          <strong>Hospital Name:</strong>
+          <%= availability.hospital.try(:name) %>
+        </p>
+
+        <p>
+          <strong>Starting Hour</strong>
+          <%= availability.start_at %>
+        </p>
+
+        <p>
+          <strong>Ending Hour</strong>
+          <%= availability.end_at %>
+        </p>
+
+        <p>
+          <strong>Day Off</strong>
+          <%= availability.day_off %>
+        </p>
+
+    <% end %>
+  </div>
 </div>
 
 <div class="row">
