@@ -3,10 +3,10 @@
 <table class="table table-bordered">
   <thead>
   <tr>
-    <th>title</th>
-    <th>New patient</th>
-    <th>Old patient</th>
-    <th colspan="3">Actions</th>
+    <th>Title</th>
+    <th>For New patient</th>
+    <th>For Old patient</th>
+    <th colspan="2">Actions</th>
   </tr>
   </thead>
 
@@ -16,7 +16,6 @@
         <td><%= rate.title %></td>
         <td><%= rate.new_patient %></td>
         <td><%= rate.old_patient %></td>
-        <td><%= link_to 'Show', doctor_rate_path(@doctor, rate) %></td>
         <td><%= link_to 'Edit', edit_doctor_rate_path(@doctor, rate) %></td>
         <td><%= link_to 'Destroy', doctor_rate_path(@doctor, rate), method: :delete, data: {confirm: 'Are you sure?'} %></td>
       </tr>

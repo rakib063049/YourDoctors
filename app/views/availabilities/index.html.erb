@@ -7,18 +7,17 @@
     <th>Start at</th>
     <th>End at</th>
     <th>Day off</th>
-    <th colspan="3">Actions</th>
+    <th colspan="2">Actions</th>
   </tr>
   </thead>
 
   <tbody>
   <% @availabilities.each do |availability| %>
       <tr>
-        <td><%= availability.hospital_id %></td>
+        <td><%= availability.hospital.name %></td>
         <td><%= availability.start_at %></td>
         <td><%= availability.end_at %></td>
         <td><%= availability.day_off %></td>
-        <td><%= link_to 'Show', doctor_availability_path(@doctor, availability) %></td>
         <td><%= link_to 'Edit', edit_doctor_availability_path(@doctor, availability) %></td>
         <td><%= link_to 'Destroy', doctor_availability_path(@doctor, availability), method: :delete, data: {confirm: 'Are you sure?'} %></td>
       </tr>
