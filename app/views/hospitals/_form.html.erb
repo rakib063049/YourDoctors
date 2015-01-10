@@ -1,0 +1,16 @@
+<%= simple_form_for(@hospital) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :city %>
+    <%= f.input :thana_id %>
+    <%= f.input :district_id %>
+    <%= f.input :cuntry %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

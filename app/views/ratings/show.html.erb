@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Doctor:</strong>
+  <%= @rating.doctor_id %>
+</p>
+
+<p>
+  <strong>Patient:</strong>
+  <%= @rating.patient_id %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @rating.number %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @rating.comments %>
+</p>
+
+<%= link_to 'Edit', edit_rating_path(@rating) %> |
+<%= link_to 'Back', ratings_path %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Hospital:</strong>
+  <%= @availability.hospital_id %>
+</p>
+
+<p>
+  <strong>Start at:</strong>
+  <%= @availability.start_at %>
+</p>
+
+<p>
+  <strong>End at:</strong>
+  <%= @availability.end_at %>
+</p>
+
+<p>
+  <strong>Day off:</strong>
+  <%= @availability.day_off %>
+</p>
+
+<p>
+  <strong>Doctor:</strong>
+  <%= @availability.doctor_id %>
+</p>
+
+<%= link_to 'Edit', edit_availability_path(@availability) %> |
+<%= link_to 'Back', availabilities_path %>

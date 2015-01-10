@@ -1,0 +1,13 @@
+<%= simple_form_for(@rate) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :new_patient %>
+    <%= f.input :old_patient %>
+    <%= f.input :doctor_id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

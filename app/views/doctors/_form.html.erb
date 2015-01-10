@@ -1,0 +1,26 @@
+<%= simple_form_for(@doctor) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :name %>
+      <%= f.input :title %>
+      <%= f.input :degrees %>
+      <%= f.input :education %>
+      <%= f.input :specialist %>
+      <%= f.input :age %>
+      <%= f.input :email %>
+      <%= f.input :phone %>
+      <%= f.input :address %>
+      <%= f.input :city %>
+      <%= f.input :thana_id %>
+      <%= f.input :district_id %>
+      <%= f.input :cuntry %>
+      <%= f.input :about_me %>
+      <%= f.input :password, required: true %>
+      <%= f.input :password_confirmation, required: true %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+<% end %>
