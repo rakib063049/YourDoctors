@@ -1,17 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :ratings
-
-  resources :rates
-
-  resources :availabilities
-
   resources :hospitals
-
   resources :patients
-
-  resources :doctors
-
+  resources :doctors do
+    resources :rates
+    resources :availabilities
+  end
   resources :locations do
     collection do
       get 'districts'

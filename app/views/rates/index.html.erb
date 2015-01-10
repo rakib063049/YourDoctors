@@ -16,9 +16,9 @@
         <td><%= rate.new_patient %></td>
         <td><%= rate.old_patient %></td>
         <td><%= rate.doctor_id %></td>
-        <td><%= link_to 'Show', rate %></td>
-        <td><%= link_to 'Edit', edit_rate_path(rate) %></td>
-        <td><%= link_to 'Destroy', rate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', doctor_rate_path(@doctor, rate) %></td>
+        <td><%= link_to 'Edit', edit_doctor_rate_path(@doctor, rate) %></td>
+        <td><%= link_to 'Destroy', doctor_rate_path(@doctor, rate), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Rate', new_rate_path %>
+<%= link_to 'New Rate',  new_doctor_rate_path(@doctor) %>

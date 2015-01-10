@@ -10,10 +10,5 @@
   <%= @rate.old_patient %>
 </p>
 
-<p>
-  <strong>Doctor:</strong>
-  <%= @rate.doctor_id %>
-</p>
 
-<%= link_to 'Edit', edit_rate_path(@rate) %> |
-<%= link_to 'Back', rates_path %>
+<%= link_to 'Edit', edit_doctor_rate_path(@doctor, @rate) %>

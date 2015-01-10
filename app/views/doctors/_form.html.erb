@@ -1,4 +1,4 @@
-<%= simple_form_for(@doctor) do |f| %>
+<%= simple_form_for(@doctor, wrapper: :horizontal_form) do |f| %>
     <%= f.error_notification %>
 
     <div class="form-inputs">
@@ -7,14 +7,8 @@
       <%= f.input :degrees %>
       <%= f.input :education %>
       <%= f.input :specialist %>
-      <%= f.input :age %>
       <%= f.input :email %>
       <%= f.input :phone %>
-      <%= f.input :address %>
-      <%= f.input :city %>
-      <%= f.input :thana_id %>
-      <%= f.input :district_id %>
-      <%= f.input :cuntry %>
       <%= f.input :about_me %>
       <%= f.input :password, required: true %>
       <%= f.input :password_confirmation, required: true %>
