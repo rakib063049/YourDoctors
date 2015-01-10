@@ -1,34 +1,46 @@
-<h1>Listing hospitals</h1>
+<h1>Hospitals</h1>
+<div class="row">
+  <% @hospitals.each do |hospital| %>
+      <div class="col-lg-12">
+        <div class="col-lg-2">
+          <img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle">
+        </div>
+        <div class="col-lg-6">
+          <div class="header">
+            <p><%= link_to hospital.name, hospital_path(hospital), style: 'font-size: 23px;' %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>City</th>
-      <th>Thana</th>
-      <th>District</th>
-      <th>Country</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @hospitals.each do |hospital| %>
-      <tr>
-        <td><%= hospital.name %></td>
-        <td><%= hospital.address %></td>
-        <td><%= hospital.city %></td>
-        <td><%= hospital.thana_id %></td>
-        <td><%= hospital.district_id %></td>
-        <td><%= hospital.cuntry %></td>
-        <td><%= link_to 'Show', hospital %></td>
-        <td><%= link_to 'Edit', edit_hospital_path(hospital) %></td>
-        <td><%= link_to 'Destroy', hospital, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+            <address>
+              <span class="glyphicon glyphicon-map-marker"></span>
+              <strong><%= hospital.name %></strong><br>
+              <%= "#{hospital.address} | #{hospital.city}" %>
+              <br>
+              <%= "#{hospital.thana.try(:name)} | #{hospital.district.try(:name)}" %>
+              <br>
+              <%= "#{hospital.division.try(:name)} | #{hospital.cuntry}" %>
+            </address>
+
+            <span class="glyphicon glyphicon-phone"><%= hospital.phone %></span> |
+            <span class="glyphicon glyphicon-envelope" aria-hidden="true"><%= hospital.email %></span>
+          </div>
+        </div>
+        <div class="col-lg-4">
+
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <hr>
+      </div>
+
+      <%#= link_to 'Show', hospital %>
+      <%#= link_to 'Edit', edit_hospital_path(hospital) %>
+      <%#= link_to 'Destroy', hospital, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+</div>
+
+<br>
+
+
 
 <br>
 

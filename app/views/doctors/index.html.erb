@@ -7,14 +7,14 @@
         </div>
         <div class="col-lg-6">
           <div class="header">
-            <p><%= link_to "#{doctor.title} #{doctor.name}", doctor_path(doctor), style: 'font-size: 23px; font-weight: 600; color: #009fdb;' %></p>
+            <p><%= link_to "#{doctor.title} #{doctor.name}", doctor_path(doctor), style: 'font-size: 23px;' %></p>
             <i style="font-size: 15px;"><%= doctor.degrees %></i>
             <p style="font-size: 17px; font-weight: 400"><%= doctor.specialist %></p>
             <p><%= doctor.about_me %></p>
 
-            <span class="glyphicon glyphicon-phone" aria-hidden="true"><%= doctor.phone %></span> |
-            <span class="glyphicon glyphicon-envelope" aria-hidden="true"><%= doctor.email %></span> |
-            <span class="glyphicon glyphicon-map-marker" aria-hidden="true"><%= doctor.city %></span>
+            <span class="glyphicon glyphicon-phone"><%= doctor.phone %></span> |
+            <span class="glyphicon glyphicon-envelope"><%= doctor.email %></span> |
+            <span class="glyphicon glyphicon-map-marker"><%= doctor.city %></span>
           </div>
         </div>
         <div class="col-lg-4">

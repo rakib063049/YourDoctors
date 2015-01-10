@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150110155932) do
+ActiveRecord::Schema.define(version: 20150110184551) do
 
   create_table "availabilities", force: true do |t|
     t.integer  "hospital_id"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20150110155932) do
   create_table "hospitals", force: true do |t|
     t.string   "name"
     t.string   "address"
-    t.integer  "city"
+    t.string   "city"
     t.integer  "thana_id"
     t.integer  "district_id"
     t.string   "cuntry"
@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 20150110155932) do
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
     t.string   "division_id"
+    t.string   "phone"
+    t.string   "email"
   end
 
   create_table "rates", force: true do |t|
