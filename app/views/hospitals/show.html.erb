@@ -1,45 +1,42 @@
 <div class="jumbotron row">
-
-  <p>
-    <strong>Name:</strong>
-    <%= @hospital.name %>
-  </p>
-
-  <p>
-    <strong>Address:</strong>
-    <%= @hospital.address %>
-  </p>
-
-  <p>
-    <strong>City:</strong>
-    <%= @hospital.city %>
-  </p>
-
-  <p>
-    <strong>Thana:</strong>
-    <%= @hospital.thana.try(:name) %>
-  </p>
-
-  <p>
-    <strong>District:</strong>
-    <%= @hospital.district.try(:name) %>
-  </p>
-
-  <p>
-    <strong>Country:</strong>
-    <%= @hospital.cuntry %>
-  </p>
-
-  <p>
-    <strong>Phone:</strong>
-    <%= @hospital.phone %>
-  </p>
-
-  <p>
-    <strong>Email:</strong>
-    <%= @hospital.email %>
-  </p>
-
+  <h2><%= @hospital.name %></h2>
+  <table class="table table-bordered">
+    <tr>
+      <th>Name</th>
+      <td><%= @hospital.name %></td>
+    </tr>
+    <tr>
+      <th>Address</th>
+      <td><%= @hospital.address %></td>
+    </tr>
+    <tr>
+      <th>City</th>
+      <td><%= @hospital.city %></td>
+    </tr>
+    <tr>
+      <th>Thana</th>
+      <td><%= @hospital.thana.try(:name) %></td>
+    </tr>
+    <tr>
+      <th>District</th>
+      <td><%= @hospital.district.try(:name) %></td>
+    </tr>
+    <tr>
+      <th>Division</th>
+      <td><%= @hospital.division.try(:name) %></td>
+    </tr>
+    <tr>
+      <th>Country</th>
+      <td><%= @hospital.cuntry %></td>
+    </tr>
+    <tr>
+      <th>Phone</th>
+      <td><%= @hospital.phone %></td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td><%= @hospital.email %></td>
+    </tr>
+  </table>
 </div>
-<%= link_to 'Edit', edit_hospital_path(@hospital) %> |
-<%= link_to 'Back', hospitals_path %>
+<%= link_to 'Edit', edit_hospital_path(@hospital), class: "btn btn-primary" %>
