@@ -1,11 +1,8 @@
 <div class="jumbotron row">
   <h2>
     <%= @hospital.name %>
-    <% if resource_owner?(@hospital) %>
-        <%= link_to edit_hospital_path(@hospital), class: "btn btn-primary" do %>
-            <i class="glyphicon glyphicon-wrench"></i> Edit
-        <% end %>
-    <% end %>
+    <%= hospital_edit_link(@hospital) %>
+    <%= hospital_destroy_link(@hospital) %>
   </h2>
   <table class="table table-bordered">
     <tr>

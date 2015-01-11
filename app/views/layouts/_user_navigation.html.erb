@@ -6,17 +6,17 @@
       </a>
       <ul class="dropdown-menu">
         <li>
-          <% if current_user.is_a?(Doctor) %>
+          <% if doctor? %>
               <%= link_to edit_doctor_path(current_user) do %>
                   <i class="glyphicon glyphicon-user"></i> Profile
               <% end %>
-          <% elsif current_user.is_a?(Patient) %>
+          <% elsif patient? %>
               <%= link_to edit_patient_path(current_user) do %>
                   <i class="glyphicon glyphicon-user"></i> Profile
               <% end %>
-          <% elsif current_user.is_a?(HospitalAuthority) %>
-              <%= link_to new_hospital_path do %>
-                  <i class="glyphicon glyphicon-user"></i> Add Hospital
+          <% elsif hospital_authority? %>
+              <%= link_to hospitals_hospital_authority_path(current_user) do %>
+                  <i class="glyphicon glyphicon-th"></i> My Hospitals
               <% end %>
           <% end %>
         </li>

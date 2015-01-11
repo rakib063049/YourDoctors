@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
-  resources :hospital_authorities
+
 
   devise_for :users
   resources :ratings
   resources :hospitals
+  resources :hospital_authorities do
+    member do
+      get :hospitals
+    end
+  end
   resources :patients
   resources :doctors do
     resources :rates
@@ -11,8 +16,7 @@ Rails.application.routes.draw do
   end
   resources :locations do
     collection do
-      get 'districts'
-      get 'thanas'
+      get :city
     end
   end
 

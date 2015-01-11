@@ -1,5 +1,5 @@
 class HospitalAuthoritiesController < ApplicationController
-  before_action :set_hospital_authority, only: [:show, :edit, :update, :destroy]
+  before_action :set_hospital_authority, only: [:show, :edit, :update, :destroy, :hospitals]
 
   respond_to :html
 
@@ -36,12 +36,16 @@ class HospitalAuthoritiesController < ApplicationController
     respond_with(@hospital_authority)
   end
 
-  private
-    def set_hospital_authority
-      @hospital_authority = HospitalAuthority.find(params[:id])
-    end
+  def hospitals
+    @hospitals = @hospital_authority.hospitals
+  end
 
-    def hospital_authority_params
-      params.require(:hospital_authority).permit(:name, :email, :phone, :password, :password_confirmation)
-    end
+  private
+  def set_hospital_authority
+    @hospital_authority = HospitalAuthority.find(params[:id])
+  end
+
+  def hospital_authority_params
+    params.require(:hospital_authority).permit(:name, :email, :phone, :password, :password_confirmation)
+  end
 end
