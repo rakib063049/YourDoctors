@@ -9,8 +9,6 @@
       <%= f.input :address %>
       <%= f.input :city_id, collection: City.all.collect { |c| [c.name, c.id] }, prompt: 'Please select City', required: true %>
       <%= f.input :cuntry, :input_html => {:value => f.object.cuntry || 'Bangladesh'}, label: "Country" %>
-      <%= f.input :password, required: true %>
-      <%= f.input :password_confirmation, required: true %>
     </div>
 
     <div class="form-actions">
