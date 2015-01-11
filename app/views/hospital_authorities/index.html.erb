@@ -1,0 +1,26 @@
+<h1>Listing hospital_authorities</h1>
+
+<table>
+  <thead class="table">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Password</th>
+    <th>Password confirmation</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @hospital_authorities.each do |hospital_authority| %>
+      <tr>
+        <td><%= hospital_authority.name %></td>
+        <td><%= hospital_authority.email %></td>
+        <td><%= hospital_authority.phone %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>

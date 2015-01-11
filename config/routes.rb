@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :hospital_authorities
+
   devise_for :users
   resources :ratings
   resources :hospitals

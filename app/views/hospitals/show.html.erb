@@ -1,5 +1,12 @@
 <div class="jumbotron row">
-  <h2><%= @hospital.name %></h2>
+  <h2>
+    <%= @hospital.name %>
+    <% if current_user.present? && current_user.id == @hospital.hospital_authority_id %>
+        <%= link_to edit_hospital_path(@hospital), class: "btn btn-primary" do %>
+            <i class="glyphicon glyphicon-wrench"></i> Edit
+        <% end %>
+    <% end %>
+  </h2>
   <table class="table table-bordered">
     <tr>
       <th>Name</th>
@@ -27,4 +34,3 @@
     </tr>
   </table>
 </div>
-<%= link_to 'Edit', edit_hospital_path(@hospital), class: "btn btn-primary" %>

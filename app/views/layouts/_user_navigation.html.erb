@@ -14,6 +14,10 @@
               <%= link_to edit_patient_path(current_user) do %>
                   <i class="glyphicon glyphicon-user"></i> Profile
               <% end %>
+          <% elsif current_user.is_a?(HospitalAuthority) %>
+              <%= link_to new_hospital_path do %>
+                  <i class="glyphicon glyphicon-user"></i> Add Hospital
+              <% end %>
           <% end %>
         </li>
         <li>
