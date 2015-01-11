@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150110200108) do
+ActiveRecord::Schema.define(version: 20150111090611) do
 
   create_table "availabilities", force: true do |t|
     t.integer  "hospital_id"
@@ -19,6 +19,13 @@ ActiveRecord::Schema.define(version: 20150110200108) do
     t.string   "end_at"
     t.string   "day_off"
     t.integer  "doctor_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cities", force: true do |t|
+    t.string   "name"
+    t.integer  "division_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -39,7 +46,7 @@ ActiveRecord::Schema.define(version: 20150110200108) do
   create_table "hospitals", force: true do |t|
     t.string   "name"
     t.string   "address"
-    t.string   "city"
+    t.integer  "city_id"
     t.integer  "thana_id"
     t.integer  "district_id"
     t.string   "cuntry"
@@ -89,7 +96,7 @@ ActiveRecord::Schema.define(version: 20150110200108) do
     t.string   "email",                  default: "", null: false
     t.string   "phone"
     t.string   "address"
-    t.string   "city"
+    t.integer  "city_id"
     t.integer  "thana_id"
     t.integer  "district_id"
     t.string   "cuntry"

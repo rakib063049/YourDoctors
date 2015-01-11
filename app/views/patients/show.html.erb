@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @patient.name %>
@@ -27,17 +25,7 @@
 
 <p>
   <strong>City:</strong>
-  <%= @patient.city %>
-</p>
-
-<p>
-  <strong>Thana:</strong>
-  <%= @patient.thana_id %>
-</p>
-
-<p>
-  <strong>District:</strong>
-  <%= @patient.district_id %>
+  <%= @patient.city.try(:name) %>
 </p>
 
 <p>

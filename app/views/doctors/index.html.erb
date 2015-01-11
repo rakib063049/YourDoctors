@@ -14,7 +14,7 @@
 
             <span class="glyphicon glyphicon-phone"><%= doctor.phone %></span> |
             <span class="glyphicon glyphicon-envelope"><%= doctor.email %></span> |
-            <span class="glyphicon glyphicon-map-marker"><%= doctor.city %></span>
+            <span class="glyphicon glyphicon-map-marker"><%= doctor.city.try(:name) %></span>
           </div>
         </div>
         <div class="col-lg-4">

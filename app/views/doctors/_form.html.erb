@@ -9,7 +9,8 @@
       <%= f.input :specialist %>
       <%= f.input :email %>
       <%= f.input :phone %>
-      <%= f.input :city %>
+      <%= f.input :address %>
+      <%= f.input :city_id, collection: City.all.collect { |c| [c.name, c.id] }, prompt: 'Please select City', required: true %>
       <%= f.input :about_me %>
       <%= f.input :password, required: true %>
       <%= f.input :password_confirmation, required: true %>

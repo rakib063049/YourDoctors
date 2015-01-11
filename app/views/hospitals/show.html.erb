@@ -11,19 +11,7 @@
     </tr>
     <tr>
       <th>City</th>
-      <td><%= @hospital.city %></td>
-    </tr>
-    <tr>
-      <th>Thana</th>
-      <td><%= @hospital.thana.try(:name) %></td>
-    </tr>
-    <tr>
-      <th>District</th>
-      <td><%= @hospital.district.try(:name) %></td>
-    </tr>
-    <tr>
-      <th>Division</th>
-      <td><%= @hospital.division.try(:name) %></td>
+      <td><%= @hospital.city.try(:name) %></td>
     </tr>
     <tr>
       <th>Country</th>

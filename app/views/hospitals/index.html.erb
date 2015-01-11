@@ -13,11 +13,8 @@
             <address>
               <span class="glyphicon glyphicon-map-marker"></span>
               <strong><%= hospital.name %></strong><br>
-              <%= "#{hospital.address} | #{hospital.city}" %>
-              <br>
-              <%= "#{hospital.thana.try(:name)} | #{hospital.district.try(:name)}" %>
-              <br>
-              <%= "#{hospital.division.try(:name)} | #{hospital.cuntry}" %>
+              <%= hospital.address %> <br>
+              <%= "#{hospital.city.try(:name)} | #{hospital.cuntry}" %>
             </address>
 
             <span class="glyphicon glyphicon-phone"><%= hospital.phone %></span> |

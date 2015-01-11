@@ -11,7 +11,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :email, null: false, default: ""
       t.string :phone
       t.string :address
-      t.integer :city
+      t.integer :city_id
       t.integer :thana_id
       t.integer :district_id
       t.string :cuntry
