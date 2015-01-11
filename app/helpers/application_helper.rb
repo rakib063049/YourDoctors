@@ -16,6 +16,28 @@ module ApplicationHelper
     current_user.present? && current_user.is_a?(HospitalAuthority)
   end
 
+  def doctor_new_link
+    link_to new_doctor_path, class: 'btn btn-primary btn-xs' do
+      "<i class='glyphicon glyphicon-plus'></i> Add New".html_safe
+    end
+  end
+
+  def doctor_edit_link(resource)
+    if resource_owner?(resource)
+      link_to edit_doctor_path(resource), class: 'btn btn-primary btn-xs' do
+        "<i class='glyphicon glyphicon-wrench'></i> Edit".html_safe
+      end
+    end
+  end
+
+  def doctor_destroy_link(resource)
+    if resource_owner?(resource)
+      link_to doctor_path(resource), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs' do
+        "<i class='glyphicon glyphicon-trash'></i> Delete".html_safe
+      end
+    end
+  end
+
   def hospital_new_link
     if hospital_authority?
       link_to new_hospital_path, class: 'btn btn-primary btn-xs' do
@@ -57,6 +79,54 @@ module ApplicationHelper
   def hospital_authority_destroy_link(resource)
     if resource_owner?(resource)
       link_to hospital_authority_path(resource), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs' do
+        "<i class='glyphicon glyphicon-trash'></i> Delete".html_safe
+      end
+    end
+  end
+
+  def rate_new_link(doctor)
+    if resource_owner?(doctor)
+      link_to new_doctor_rate_path(doctor), class: 'btn btn-primary btn-xs' do
+        "<i class='glyphicon glyphicon-plus'></i> Add New".html_safe
+      end
+    end
+  end
+
+  def rate_edit_link(doctor, resource)
+    if resource_owner?(resource)
+      link_to edit_doctor_rate_path(doctor, resource), class: 'btn btn-primary btn-xs' do
+        "<i class='glyphicon glyphicon-wrench'></i> Edit".html_safe
+      end
+    end
+  end
+
+  def rate_destroy_link(resource)
+    if resource_owner?(resource)
+      link_to doctor_rate_path(doctor, resource), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs' do
+        "<i class='glyphicon glyphicon-trash'></i> Delete".html_safe
+      end
+    end
+  end
+
+  def availability_new_link(doctor)
+    if resource_owner?(doctor)
+      link_to new_doctor_availability_path(doctor), class: 'btn btn-primary btn-xs' do
+        "<i class='glyphicon glyphicon-plus'></i> Add New".html_safe
+      end
+    end
+  end
+
+  def availability_edit_link(doctor, resource)
+    if resource_owner?(resource)
+      link_to edit_doctor_availability_path(doctor, resource), class: 'btn btn-primary btn-xs' do
+        "<i class='glyphicon glyphicon-wrench'></i> Edit".html_safe
+      end
+    end
+  end
+
+  def availability_destroy_link(resource)
+    if resource_owner?(resource)
+      link_to doctor_availability_path(doctor, resource), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs' do
         "<i class='glyphicon glyphicon-trash'></i> Delete".html_safe
       end
     end

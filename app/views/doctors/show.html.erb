@@ -1,5 +1,89 @@
-<% if resource_owner?(@doctor) %>
-    <%= render :partial => 'doctors/personal_profile' %>
-<% else %>
-    <%= render :partial => 'doctors/public_profile' %>
-<% end %>
+<div class="jumbotron row">
+  <div class="row text-center">
+    <img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle">
+  </div>
+  <div class="col-lg-6">
+    <h2>
+      <%= @doctor.name %>
+      <%= doctor_edit_link(@doctor) %>
+      <%= doctor_destroy_link(@doctor) %>
+    </h2>
+    <table class="table table-bordered">
+      <tr>
+        <th>Title</th>
+        <td><%= @doctor.title %></td>
+      </tr>
+      <tr>
+        <th>Name</th>
+        <td><%= @doctor.name %></td>
+      </tr>
+      <tr>
+        <th>Degrees</th>
+        <td><%= @doctor.degrees %></td>
+      </tr>
+      <tr>
+        <th>Education</th>
+        <td><%= @doctor.education %></td>
+      </tr>
+      <tr>
+        <th>Specialist</th>
+        <td><%= @doctor.specialist %></td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td><%= @doctor.email %></td>
+      </tr>
+      <tr>
+        <th>Phone</th>
+        <td><%= @doctor.phone %></td>
+      </tr>
+      <tr>
+        <th>About Me</th>
+        <td><%= @doctor.about_me %></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="col-lg-6">
+    <h2> Rates <%= rate_new_link(@doctor) %> </h2>
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th>Title</th>
+        <th>New Patients</th>
+        <th>Old Patients</th>
+      </tr>
+      </thead>
+
+      <% @doctor.rates.each do |rate| %>
+          <tr>
+            <td><%= rate.title %></td>
+            <td>BDT <%= rate.new_patient %></td>
+            <td>BDT <%= rate.old_patient %></td>
+          </tr>
+      <% end %>
+    </table>
+    <br>
+
+    <h2> Availabilities <%= availability_new_link(@doctor) %> </h2>
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th>Hospital</th>
+        <th>Start</th>
+        <th>End</th>
+        <th>Off</th>
+      </tr>
+      </thead>
+
+      <% @doctor.availabilities.each do |availability| %>
+          <tr>
+            <td><%= link_to availability.hospital.name, hospital_path(availability.hospital) %></td>
+            <td><%= availability.start_at %></td>
+            <td><%= availability.end_at %></td>
+            <td> <%= availability.day_off %></td>
+          </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
