@@ -38,6 +38,28 @@ module ApplicationHelper
     end
   end
 
+  def patient_new_link
+    link_to new_patient_path, class: 'btn btn-primary btn-xs' do
+      "<i class='glyphicon glyphicon-plus'></i> Add New".html_safe
+    end
+  end
+
+  def patient_edit_link(resource)
+    if resource_owner?(resource)
+      link_to edit_patient_path(resource), class: 'btn btn-primary btn-xs' do
+        "<i class='glyphicon glyphicon-wrench'></i> Edit".html_safe
+      end
+    end
+  end
+
+  def patient_destroy_link(resource)
+    if resource_owner?(resource)
+      link_to patient_path(resource), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs' do
+        "<i class='glyphicon glyphicon-trash'></i> Delete".html_safe
+      end
+    end
+  end
+
   def hospital_new_link
     if hospital_authority?
       link_to new_hospital_path, class: 'btn btn-primary btn-xs' do

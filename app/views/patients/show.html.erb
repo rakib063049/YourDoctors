@@ -1,37 +1,37 @@
-<p>
-  <strong>Name:</strong>
-  <%= @patient.name %>
-</p>
-
-<p>
-  <strong>Age:</strong>
-  <%= @patient.age %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @patient.email %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @patient.phone %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @patient.address %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @patient.city.try(:name) %>
-</p>
-
-<p>
-  <strong>Country:</strong>
-  <%= @patient.cuntry %>
-</p>
-
-<%= link_to 'Edit', edit_patient_path(@patient) %> |
-<%= link_to 'Back', patients_path %>
+<div class="jumbotron row">
+  <h2>
+    <%= @patient.name %>
+    <%= patient_edit_link(@patient) %>
+    <%= patient_destroy_link(@patient) %>
+  </h2>
+  <table class="table table-bordered">
+    <tr>
+      <th>Name</th>
+      <td><%= @patient.name %></td>
+    </tr>
+    <tr>
+      <th>Age</th>
+      <td><%= @patient.age %></td>
+    </tr>
+    <tr>
+      <th>Phone</th>
+      <td><%= @patient.phone %></td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td><%= @patient.email %></td>
+    </tr>
+    <tr>
+      <th>Address</th>
+      <td><%= @patient.address %></td>
+    </tr>
+    <tr>
+      <th>City</th>
+      <td><%= @patient.city.try(:name) %></td>
+    </tr>
+    <tr>
+      <th>Country</th>
+      <td><%= @patient.cuntry %></td>
+    </tr>
+  </table>
+</div>
