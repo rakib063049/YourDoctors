@@ -1,19 +1,22 @@
-<p id="notice"><%= notice %></p>
+<div class="jumbotron row">
+  <h2>
+    <%= @rate.title %>
+    <%= rate_edit_link(@doctor, @rate) %>
+    <%= rate_destroy_link(@doctor, @rate) %>
+  </h2>
+  <table class="table table-bordered">
+    <tr>
+      <th>Title</th>
+      <td><%= @rate.title %></td>
+    </tr>
+    <tr>
+      <th>New patient</th>
+      <td><%= @rate.new_patient %></td>
+    </tr>
+    <tr>
+      <th>Old Patient</th>
+      <td><%= @rate.old_patient %></td>
+    </tr>
+  </table>
+</div>
 
-<p>
-  <strong>title:</strong>
-  <%= @rate.title %>
-</p>
-
-<p>
-  <strong>New patient:</strong>
-  <%= @rate.new_patient %>
-</p>
-
-<p>
-  <strong>Old patient:</strong>
-  <%= @rate.old_patient %>
-</p>
-
-
-<%= link_to 'Edit', edit_doctor_rate_path(@doctor, @rate) %>

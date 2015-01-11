@@ -57,7 +57,7 @@
 
       <% @doctor.rates.each do |rate| %>
           <tr>
-            <td><%= rate.title %></td>
+            <td> <%= rate_show_link(@doctor, rate) %> </td>
             <td>BDT <%= rate.new_patient %></td>
             <td>BDT <%= rate.old_patient %></td>
           </tr>
@@ -78,7 +78,7 @@
 
       <% @doctor.availabilities.each do |availability| %>
           <tr>
-            <td><%= link_to availability.hospital.name, hospital_path(availability.hospital) %></td>
+            <td><%= link_to availability.hospital.name, availability.hospital %> <%= availability_show_link(@doctor, availability) %></td>
             <td><%= availability.start_at %></td>
             <td><%= availability.end_at %></td>
             <td> <%= availability.day_off %></td>

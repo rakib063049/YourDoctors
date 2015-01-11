@@ -114,6 +114,12 @@ module ApplicationHelper
     end
   end
 
+  def rate_show_link(doctor, resource)
+    if resource_owner?(resource)
+      link_to resource.title, doctor_rate_path(doctor, resource)
+    end
+  end
+
   def rate_edit_link(doctor, resource)
     if resource_owner?(resource)
       link_to edit_doctor_rate_path(doctor, resource), class: 'btn btn-primary btn-xs' do
@@ -122,7 +128,7 @@ module ApplicationHelper
     end
   end
 
-  def rate_destroy_link(resource)
+  def rate_destroy_link(doctor, resource)
     if resource_owner?(resource)
       link_to doctor_rate_path(doctor, resource), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs' do
         "<i class='glyphicon glyphicon-trash'></i> Delete".html_safe
@@ -146,7 +152,15 @@ module ApplicationHelper
     end
   end
 
-  def availability_destroy_link(resource)
+  def availability_show_link(doctor, resource)
+    if resource_owner?(resource)
+      link_to doctor_availability_path(doctor, resource), class: 'btn btn-primary btn-xs' do
+        "<i class='glyphicon glyphicon-eye-close'></i> Av".html_safe
+      end
+    end
+  end
+
+  def availability_destroy_link(doctor, resource)
     if resource_owner?(resource)
       link_to doctor_availability_path(doctor, resource), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs' do
         "<i class='glyphicon glyphicon-trash'></i> Delete".html_safe

@@ -1,4 +1,4 @@
-<h1>Rates</h1>
+<h2>Rates <%= rate_new_link(@doctor) %></h2>
 
 <table class="table table-bordered">
   <thead>
@@ -6,7 +6,6 @@
     <th>Title</th>
     <th>For New patient</th>
     <th>For Old patient</th>
-    <th colspan="2">Actions</th>
   </tr>
   </thead>
 
@@ -16,13 +15,7 @@
         <td><%= rate.title %></td>
         <td><%= rate.new_patient %></td>
         <td><%= rate.old_patient %></td>
-        <td><%= link_to 'Edit', edit_doctor_rate_path(@doctor, rate) %></td>
-        <td><%= link_to 'Destroy', doctor_rate_path(@doctor, rate), method: :delete, data: {confirm: 'Are you sure?'} %></td>
       </tr>
   <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Rate', new_doctor_rate_path(@doctor), class: 'btn btn-primary' %>

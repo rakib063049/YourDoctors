@@ -1,24 +1,25 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Hospital:</strong>
-  <%= @availability.hospital_id %>
-</p>
-
-<p>
-  <strong>Start at:</strong>
-  <%= @availability.start_at %>
-</p>
-
-<p>
-  <strong>End at:</strong>
-  <%= @availability.end_at %>
-</p>
-
-<p>
-  <strong>Day off:</strong>
-  <%= @availability.day_off %>
-</p>
-
-
-<%= link_to 'Edit', edit_doctor_availability_path(@doctor, @availability) %>
+<div class="jumbotron row">
+  <h2>
+    <%= @availability.hospital.name %>
+    <%= availability_edit_link(@doctor, @availability) %>
+    <%= availability_destroy_link(@doctor, @availability) %>
+  </h2>
+  <table class="table table-bordered">
+    <tr>
+      <th>Hospital</th>
+      <td><%= @availability.hospital.name %></td>
+    </tr>
+    <tr>
+      <th>Start at</th>
+      <td><%= @availability.start_at %></td>
+    </tr>
+    <tr>
+      <th>End at</th>
+      <td><%= @availability.end_at %></td>
+    </tr>
+    <tr>
+      <th>Day Off</th>
+      <td><%= @availability.day_off %></td>
+    </tr>
+  </table>
+</div>

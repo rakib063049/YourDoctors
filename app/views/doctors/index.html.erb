@@ -7,7 +7,7 @@
         </div>
         <div class="col-lg-6">
           <div class="header">
-            <p><%= link_to "#{doctor.title} #{doctor.name}", doctor_path(doctor), style: 'font-size: 23px;' %></p>
+            <h2><%= link_to doctor.name, doctor_path(doctor)%></h2>
             <i style="font-size: 15px;"><%= doctor.degrees %></i>
             <p style="font-size: 17px; font-weight: 400"><%= doctor.specialist %></p>
             <p><%= doctor.about_me %></p>
