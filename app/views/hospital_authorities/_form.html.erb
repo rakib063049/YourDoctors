@@ -1,6 +1,4 @@
-<%= simple_form_for(@hospital_authority) do |f| %>
-    <%= f.error_notification %>
-
+<%= simple_form_for(@hospital_authority, wrapper: :horizontal_form) do |f| %>
     <div class="form-inputs">
       <%= f.input :name %>
       <%= f.input :email %>

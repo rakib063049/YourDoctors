@@ -7,14 +7,17 @@
       <ul class="dropdown-menu">
         <li>
           <% if doctor? %>
-              <%= link_to edit_doctor_path(current_user) do %>
+              <%= link_to doctor_path(current_user) do %>
                   <i class="glyphicon glyphicon-user"></i> Profile
               <% end %>
           <% elsif patient? %>
-              <%= link_to edit_patient_path(current_user) do %>
+              <%= link_to patient_path(current_user) do %>
                   <i class="glyphicon glyphicon-user"></i> Profile
               <% end %>
           <% elsif hospital_authority? %>
+              <%= link_to hospital_authority_path(current_user) do %>
+                  <i class="glyphicon glyphicon-user"></i> Profile
+              <% end %>
               <%= link_to hospitals_hospital_authority_path(current_user) do %>
                   <i class="glyphicon glyphicon-th"></i> My Hospitals
               <% end %>

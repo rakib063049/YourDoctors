@@ -1,29 +1,21 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @hospital_authority.name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @hospital_authority.email %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @hospital_authority.phone %>
-</p>
-
-<p>
-  <strong>Password:</strong>
-  <%= @hospital_authority.password %>
-</p>
-
-<p>
-  <strong>Password confirmation:</strong>
-  <%= @hospital_authority.password_confirmation %>
-</p>
-
-<%= link_to 'Edit', edit_hospital_authority_path(@hospital_authority) %> |
-<%= link_to 'Back', hospital_authorities_path %>
+<div class="jumbotron row">
+  <h2>
+    <%= @hospital_authority.name %>
+    <%= hospital_authority_edit_link(@hospital_authority) %>
+    <%= hospital_authority_destroy_link(@hospital_authority) %>
+  </h2>
+  <table class="table table-bordered">
+    <tr>
+      <th>Name</th>
+      <td><%= @hospital_authority.name %></td>
+    </tr>
+    <tr>
+      <th>Phone</th>
+      <td><%= @hospital_authority.phone %></td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td><%= @hospital_authority.email %></td>
+    </tr>
+  </table>
+</div>
