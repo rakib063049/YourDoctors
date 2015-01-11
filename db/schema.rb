@@ -30,13 +30,6 @@ ActiveRecord::Schema.define(version: 20150111090611) do
     t.datetime "updated_at"
   end
 
-  create_table "districts", force: true do |t|
-    t.string   "name"
-    t.integer  "division_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "divisions", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -75,13 +68,6 @@ ActiveRecord::Schema.define(version: 20150111090611) do
     t.integer  "patient_id"
     t.float    "number"
     t.string   "comments"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "thanas", force: true do |t|
-    t.string   "name"
-    t.integer  "district_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
