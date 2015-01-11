@@ -117,6 +117,8 @@ module ApplicationHelper
   def rate_show_link(doctor, resource)
     if resource_owner?(resource)
       link_to resource.title, doctor_rate_path(doctor, resource)
+    else
+      link_to resource.title, "#"
     end
   end
 
