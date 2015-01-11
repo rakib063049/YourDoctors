@@ -1,4 +1,4 @@
-<% if current_user.present? && current_user.id == @doctor.id %>
+<% if resource_owner?(@doctor) %>
     <%= render :partial => 'doctors/personal_profile' %>
 <% else %>
     <%= render :partial => 'doctors/public_profile' %>

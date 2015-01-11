@@ -1,7 +1,7 @@
 <div class="jumbotron row">
   <h2>
     <%= @hospital.name %>
-    <% if current_user.present? && current_user.id == @hospital.hospital_authority_id %>
+    <% if resource_owner?(@hospital) %>
         <%= link_to edit_hospital_path(@hospital), class: "btn btn-primary" do %>
             <i class="glyphicon glyphicon-wrench"></i> Edit
         <% end %>
