@@ -15,5 +15,6 @@
 //= require twitter/bootstrap
 //= require moment
 //= require bootstrap-datetimepicker
+//= require bootstrap-rating-input.min
 //= require turbolinks
 //= require_tree .

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :patients
   resources :doctors do
     resources :rates
+    resources :ratings
     resources :availabilities
   end
   resources :locations do

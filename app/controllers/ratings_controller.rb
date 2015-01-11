@@ -1,11 +1,11 @@
 class RatingsController < ApplicationController
+  before_action :set_doctor
   before_action :set_rating, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
 
   def index
-    @ratings = Rating.all
-    respond_with(@ratings)
+    @ratings = @doctor.ratings
   end
 
   def show
@@ -13,7 +13,7 @@ class RatingsController < ApplicationController
   end
 
   def new
-    @rating = Rating.new
+    @rating = @doctor.ratings.build
     respond_with(@rating)
   end
 
@@ -21,27 +21,31 @@ class RatingsController < ApplicationController
   end
 
   def create
-    @rating = Rating.new(rating_params)
+    @rating = @doctor.ratings.build(rating_params)
     @rating.save
-    respond_with(@rating)
+    respond_with([@doctor, @rating])
   end
 
   def update
     @rating.update(rating_params)
-    respond_with(@rating)
+    respond_with([@doctor, @rating])
   end
 
   def destroy
     @rating.destroy
-    respond_with(@rating)
+    respond_with([@doctor, @rating])
   end
 
   private
-    def set_rating
-      @rating = Rating.find(params[:id])
-    end
+  def set_rating
+    @rating = Rating.find(params[:id])
+  end
 
-    def rating_params
-      params.require(:rating).permit(:doctor_id, :patient_id, :number, :comments)
-    end
+  def set_doctor
+    @doctor = Doctor.find(params[:doctor_id])
+  end
+
+  def rating_params
+    params.require(:rating).permit(:doctor_id, :patient_id, :number, :comments)
+  end
 end

@@ -170,4 +170,13 @@ module ApplicationHelper
     end
   end
 
+  def rating_new_link(doctor)
+    if patient?
+      link_to new_doctor_rating_path(doctor), class: 'btn btn-primary btn-xs' do
+        "<i class='glyphicon glyphicon-plus'></i> Review".html_safe
+      end
+    end
+  end
+
+
 end
