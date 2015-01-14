@@ -1,7 +1,7 @@
 <%= simple_form_for([@doctor, @rating], wrapper: :horizontal_form) do |f| %>
     <div class="form-inputs">
-      <%= f.input :doctor_id, collection: [[@doctor.name, @doctor.id]], prompt: false %>
-      <%= f.input :number, input_html: {class: 'rating'} %>
+      <%= f.input :doctor_id, collection: [[@doctor.name, @doctor.id]], prompt: false, input_html: {disabled: true} %>
+      <%= f.input :number %>
       <%= f.input :comments %>
       <%= f.hidden_field :patient_id, value: current_user.id %>
     </div>
@@ -11,3 +11,7 @@
     </div>
 <% end %>
 
+
+<script>
+    $('input#rating_number').rating();
+</script>

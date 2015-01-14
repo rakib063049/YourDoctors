@@ -178,5 +178,21 @@ module ApplicationHelper
     end
   end
 
+  def rating_edit_link(doctor, resource)
+    if patient? && resource_owner?(resource)
+      link_to edit_doctor_rating_path(doctor, resource), class: 'btn btn-primary btn-xs' do
+        "<i class='glyphicon glyphicon-wrench'></i> Edit".html_safe
+      end
+    end
+  end
+
+  def rating_destroy_link(doctor, resource)
+    if patient? && resource_owner?(resource)
+      link_to doctor_rating_path(doctor, resource), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs' do
+        "<i class='glyphicon glyphicon-trash'></i> Delete".html_safe
+      end
+    end
+  end
+
 
 end

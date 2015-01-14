@@ -1,3 +1,6 @@
 class Rating < ActiveRecord::Base
-  has_many :doctors
+  belongs_to :doctor
+  belongs_to :patient
+  belongs_to :user, :foreign_key => :patient_id
+
 end

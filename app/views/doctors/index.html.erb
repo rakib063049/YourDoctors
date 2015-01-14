@@ -5,9 +5,7 @@
         <div class="col-lg-2 text-center">
           <img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle">
           <br>
-          <% 5.times do |i| %>
-              <i class="glyphicon glyphicon-star<%= '-empty' if i > doctor.average_rating %>"></i>
-          <% end %>
+          <%= render partial: 'doctors/ratings', locals: {doctor: doctor} %>
           <br>
           <%= rating_new_link(doctor) %>
         </div>

@@ -5,18 +5,17 @@
   <tr>
     <th>Doctor</th>
     <th>Patient</th>
-    <th>Number</th>
+    <th>Rating</th>
     <th>Comments</th>
-    <th colspan="3"></th>
   </tr>
   </thead>
 
   <tbody>
   <% @ratings.each do |rating| %>
       <tr>
-        <td><%= rating.doctor_id %></td>
-        <td><%= rating.patient_id %></td>
-        <td><%= rating.number %></td>
+        <td><%= rating.doctor.name%></td>
+        <td><%= rating.patient.name %></td>
+        <td><%= render partial: 'ratings/ratings', locals: {rating: rating} %></td>
         <td><%= rating.comments %></td>
       </tr>
   <% end %>

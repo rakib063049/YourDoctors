@@ -1,21 +1,25 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Doctor:</strong>
-  <%= @rating.doctor_id %>
-</p>
-
-<p>
-  <strong>Patient:</strong>
-  <%= @rating.patient_id %>
-</p>
-
-<p>
-  <strong>Number:</strong>
-  <%= @rating.number %>
-</p>
-
-<p>
-  <strong>Comments:</strong>
-  <%= @rating.comments %>
-</p>
+<div class="jumbotron row">
+  <h2>
+    <%= render partial: 'ratings/ratings', locals: {rating: @rating} %>
+    <%= rating_edit_link(@doctor, @rating) %>
+    <%= rating_destroy_link(@doctor, @rating) %>
+  </h2>
+  <table class="table table-bordered">
+    <tr>
+      <th>Doctor Name</th>
+      <td><%= @doctor.name %></td>
+    </tr>
+    <tr>
+      <th>Patient Name</th>
+      <td><%= @rating.patient.name %></td>
+    </tr>
+    <tr>
+      <th>Ratings</th>
+      <td><%= render partial: 'ratings/ratings', locals: {rating: @rating} %></td>
+    </tr>
+    <tr>
+      <th>Comments</th>
+      <td><%= @rating.comments %></td>
+    </tr>
+  </table>
+</div>
