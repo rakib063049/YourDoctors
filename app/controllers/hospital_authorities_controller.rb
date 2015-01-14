@@ -1,4 +1,5 @@
 class HospitalAuthoritiesController < ApplicationController
+  load_and_authorize_resource
   before_action :set_hospital_authority, only: [:show, :edit, :update, :destroy, :hospitals]
 
   respond_to :html
