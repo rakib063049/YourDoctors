@@ -1,4 +1,5 @@
 <div class="jumbotron row">
+  <%= render partial: 'shared/show_image', locals: {obj: @patient} %>
   <h2>
     <%= @patient.name %>
     <%= patient_edit_link(@patient) %>

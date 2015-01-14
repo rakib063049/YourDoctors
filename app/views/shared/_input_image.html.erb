@@ -1,0 +1,3 @@
+<%= f.simple_fields_for :image do |img| %>
+    <%= img.input :photo, :as => :file, wrapper: :horizontal_file_input, hint: "#{image_tag f.object.image.photo.url(:thumbs), class: "img-circle"}".html_safe %>
+<% end %>

@@ -2,6 +2,7 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
+      <%= render partial: 'shared/input_image', locals: {f: f} %>
       <%= f.input :name %>
       <%= f.input :phone %>
       <%= f.input :email %>

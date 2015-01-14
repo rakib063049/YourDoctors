@@ -4,7 +4,7 @@
   <% @hospitals.each do |hospital| %>
       <div class="col-lg-12">
         <div class="col-lg-2">
-          <img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle">
+          <%= render partial: 'shared/show_image', locals: {obj: hospital} %>
         </div>
         <div class="col-lg-6">
           <div class="header">

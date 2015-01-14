@@ -1,5 +1,6 @@
 <%= simple_form_for(@hospital_authority, wrapper: :horizontal_form) do |f| %>
     <div class="form-inputs">
+      <%= render partial: 'shared/input_image', locals: {f: f} %>
       <%= f.input :name %>
       <%= f.input :email %>
       <%= f.input :phone %>

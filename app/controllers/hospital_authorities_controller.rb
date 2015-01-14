@@ -18,6 +18,7 @@ class HospitalAuthoritiesController < ApplicationController
   end
 
   def edit
+    @hospital_authority.image = Image.new if @hospital_authority.image.nil?
   end
 
   def create
@@ -46,6 +47,6 @@ class HospitalAuthoritiesController < ApplicationController
   end
 
   def hospital_authority_params
-    params.require(:hospital_authority).permit(:name, :email, :phone, :password, :password_confirmation)
+    params.require(:hospital_authority).permit(:name, :email, :phone, :password, :password_confirmation, image_attributes: [:photo])
   end
 end

@@ -1,0 +1,2 @@
+<% image_url = obj.image.photo.url(:thumbs) rescue "thumbs/missing.png" %>
+<%= image_tag image_url, class: "img-circle" %>

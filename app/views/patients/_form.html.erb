@@ -1,7 +1,8 @@
-<%= simple_form_for(@patient, wrapper: :horizontal_form) do |f| %>
+<%= simple_form_for(@patient, wrapper: :horizontal_form, html: {multipart: true}) do |f| %>
     <%= f.error_notification %>
 
     <div class="form-inputs">
+      <%= render partial: 'shared/input_image', locals: {f: f} %>
       <%= f.input :name %>
       <%= f.input :age %>
       <%= f.input :email %>

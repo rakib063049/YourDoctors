@@ -18,6 +18,7 @@ class DoctorsController < ApplicationController
   end
 
   def edit
+    @doctor.image = Image.new if @doctor.image.nil?
   end
 
   def create
@@ -42,6 +43,7 @@ class DoctorsController < ApplicationController
   end
 
   def doctor_params
-    params.require(:doctor).permit(:name, :title, :degrees, :education, :specialist, :age, :email, :phone, :address, :city_id, :thana_id, :district_id, :division_id, :cuntry, :about_me, :type, :password, :password_confirmation)
+    params.require(:doctor).permit(:name, :title, :degrees, :education, :specialist, :age, :email, :phone, :address, :city_id, :thana_id, :district_id, :division_id,
+                                   :cuntry, :about_me, :type, :password, :password_confirmation, image_attributes: [:photo])
   end
 end
