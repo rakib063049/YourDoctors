@@ -1,4 +1,5 @@
 class AvailabilitiesController < ApplicationController
+  load_and_authorize_resource
   before_action :set_doctor
   before_action :set_availability, only: [:show, :edit, :update, :destroy]
 

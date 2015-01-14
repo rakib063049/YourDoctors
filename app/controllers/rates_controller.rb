@@ -1,4 +1,5 @@
 class RatesController < ApplicationController
+  load_and_authorize_resource
   before_action :set_doctor
   before_action :set_rate, only: [:show, :edit, :update, :destroy]
 
