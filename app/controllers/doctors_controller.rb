@@ -5,7 +5,11 @@ class DoctorsController < ApplicationController
   respond_to :html
 
   def index
-    @doctors = Doctor.all
+    if params[:query].present?
+      @doctors = Doctor.search(params[:query], :load => true)
+    else
+      @doctors = Doctor.all
+    end
     respond_with(@doctors)
   end
 
@@ -32,6 +36,10 @@ class DoctorsController < ApplicationController
     @doctor.update(doctor_params)
     respond_with(@doctor)
   end
+
+  def search
+  end
+
 
   def destroy
     @doctor.destroy

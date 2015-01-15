@@ -1,0 +1,22 @@
+<h2 class="page-header">Reviews</h2>
+
+<div class="row">
+  <% ratings.each do |rating| %>
+      <div class="col-lg-12">
+        <div class="col-lg-2 text-center">
+          <% image_url = rating.patient.image.photo.url(:small) rescue "thumbs/missing.png" %>
+          <%= image_tag image_url, class: "img-circle" %>
+          <br>
+          <%= link_to rating.patient.name, rating.patient %>
+        </div>
+        <div class="col-lg-10">
+          <%= render partial: 'ratings/ratings', locals: {rating: rating} %>
+          <br>
+          <%= rating.comments %>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <hr>
+      </div>
+  <% end %>
+</div>
